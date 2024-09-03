@@ -1,11 +1,11 @@
 package com.example.GoAdventure.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -25,4 +25,10 @@ public class User extends BaseEntity{
 
     @Column
     private String phone;
+
+    @Column(name = "is_banned")
+    private boolean isBanned;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<UserRole> roles;
 }

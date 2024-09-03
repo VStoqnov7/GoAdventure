@@ -47,4 +47,8 @@ public enum AdventureType {
     AdventureType(String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
 }
