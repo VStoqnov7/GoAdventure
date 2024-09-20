@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <link th:include="~{fragments/head :: head}">
+    <link rel="stylesheet" href="/css/adventure-profile.css">
+
+</head>
+
+<body>
+
+<div>
+    <nav th:replace="~{fragments/navigation}"></nav>
+</div>
+
+<section class="section">
+    <div class="slider">
+        <!-- Pictures -->
+        <div class="featured-carousel owl-carousel">
+            <div class="item">
+                <div class="work">
+                    <div class="img d-flex align-items-center justify-content-center"
+                         style="background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg);">
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="work">
+                    <div class="img d-flex align-items-center justify-content-center"
+                         style="background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1726437195/balloons_tohczs.jpg);">
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="work">
+                    <div class="img d-flex align-items-center justify-content-center"
+                         style="background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg);">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thumbnails -->
+        <div class=" text-center">
+            <ul class="thumbnail">
+                <li class="active img"><a href="#"><img
+                        src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
+                        alt="Image" class="img-fluid"></a></li>
+                <li><a href="#"><img
+                        src="https://res.cloudinary.com/db1rc9fon/image/upload/v1726437195/balloons_tohczs.jpg"
+                        alt="Image" class="img-fluid"></a></li>
+                <li><a href="#"><img
+                        src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
+                        alt="Image" class="img-fluid"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container adventure-details">
+        <div class=" row-detail">
+                <div class="pricingTable">
+                    <h3 class="title">
+                        <span>Name</span>
+                    </h3>
+                    <ul class="pricing-content">
+                        <li><i class="fa-regular fa-circle"></i>Location</li>
+                        <li><i class="fa-regular fa-circle"></i>Type</li>
+                        <li><i class="fa-regular fa-circle"></i>Duration</li>
+                        <li>Description</li>
+                    </ul>
+                    <div class="price-value">
+                        <a href="#" class="book">Book Now</a>
+                        <span class="amount">
+                                $10
+                            </span>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+
+<script src="/js/adventure-profile-image-carousel.js"></script>
+
+<footer th:replace="~{fragments/footer}"></footer>
+</body>
+</html>
