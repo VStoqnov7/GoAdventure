@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <link th:include="~{fragments/head :: head}">
+    <link rel="stylesheet" href="/css/guest-page.css">
+
+</head>
+
+<body>
+
+<div>
+    <nav th:replace="~{fragments/navigation}"></nav>
+</div>
+
+<section class="default-banner active-blog-slider owl-carousel">
+    <div class="item-slider slide-1">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row fullscreen justify-content-center align-items-center">
+                <div class="col-md-10 col-12">
+                    <div class="banner-content">
+                        <h4 class="mb-20 text-uppercase">Discover the Colorful World</h4>
+                        <h1 class="text-uppercase">New Adventure</h1>
+                        <p>Plan unforgettable experiences<br> that will get your adrenaline pumping.</p>
+                        <a th:href="@{/login}" class="text-uppercase header-btn">Login / Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item-slider slide-2">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row fullscreen justify-content-center align-items-center">
+                <div class="col-md-10 col-12">
+                    <div class="banner-content">
+                        <h4 class="mb-20 text-uppercase">Discover the Colorful World</h4>
+                        <h1 class="text-uppercase">New Trip</h1>
+                        <p>Choose your next destination<br> and discover the beauty of the world.</p>
+                        <a th:href="@{/login}" class="text-uppercase header-btn">Login / Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item-slider slide-3">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row fullscreen justify-content-center align-items-center">
+                <div class="col-md-10 col-12">
+                    <div class="banner-content">
+                        <h4 class="mb-20 text-uppercase">Discover the Colorful World</h4>
+                        <h1 class="text-uppercase">New Experience</h1>
+                        <p>Enjoy unique moments<br> that will stay in your memory forever.</p>
+                        <a th:href="@{/login}" class="text-uppercase header-btn">Login / Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+        $(document).ready(function () {
+            $('.active-blog-slider').owlCarousel({
+                loop: true,
+                items: 1,
+                autoplay: true,
+                autoplayTimeout: 6000,
+                autoplayHoverPause: true,
+                dots: false,
+                nav: false,
+            });
+        });
+</script>
+<footer th:replace="~{fragments/footer}"></footer>
+</body>
+</html>
