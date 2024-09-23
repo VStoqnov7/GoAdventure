@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Eater&display=swap');
+
+
+body{
+    background-image: url("https://res.cloudinary.com/db1rc9fon/image/upload/v1726785164/flat-lay-map-hat-wooden-table_lkvbor.jpg");
+    position: relative;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.section {
+    padding: 12rem 0 0 0;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.slider {
+    position: relative;
+    width: 70%;
+    padding: 0 0 0 1rem;
+}
+
+.work {
+    width: 100%;
+}
+
+.work .img {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 20px 35px -30px rgba(0, 0, 0, 0.26);
+}
+
+.work .img:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    z-index: -1;
+    background: #000;
+    opacity: 0.3;
+}
+
+.work .text h2 {
+    font-size: 60px;
+    font-weight: 200;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.work .text span {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.thumbnail {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 99;
+    width: 100%;
+}
+
+.thumbnail li {
+    display: inline-block;
+}
+
+.thumbnail li a {
+    display: block;
+    margin: 4px;
+}
+
+.thumbnail li a img {
+    width: 100px;
+    border-radius: 20%;
+    transform: scale(0.8);
+    transition: 0.3s all ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail li.active a img {
+    border: 4px solid #fff;
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.adventure-details {
+    width: 30%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border: 1px solid #abd4f8;
+}
+
+
+ a {
+     text-decoration: none;
+ }
+
+ .pricingTable {
+    padding-bottom: 200px;
+    background: #fff;
+    text-align: center;
+    position: relative;
+ }
+
+ .pricingTable:before {
+    content: "";
+    width: 80%;
+    height: 10px;
+    background: #727cb6;
+    margin: 0 auto;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+ }
+
+ .pricingTable .title {
+    display: inline-block;
+    width: 80%;
+    margin: 0 0 40px;
+    background: #727cb6;
+    font-size: 25px;
+    font-weight: 700;
+    color: #fff;
+    position: relative;
+ }
+
+ .pricingTable .title:after,
+ .pricingTable .title:before {
+    content: "";
+    border-right: 10px solid #4a59ab;
+    border-top: 10px solid transparent;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+ }
+
+ .pricingTable .title:after {
+    border-right: none;
+    left: auto;
+    right: -10px;
+ }
+
+ .pricingTable .title span {
+    display: -webkit-box;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal
+ }
+
+ .pricingTable .title span:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 21px;
+    position: absolute;
+    bottom: -21px;
+    background: linear-gradient(-45deg, transparent 75%, #727cb6 75%) 0 50%, linear-gradient(45deg, transparent 75%, #727cb6 75%) 0 50%;
+    background-repeat: repeat-x;
+    background-size: 16px;
+ }
+
+ .pricingTable .pricing-content {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+ }
+
+ .pricingTable .pricing-content li {
+    font-size: 16px;
+    font-weight: 700;
+    color: #727cb6;
+    line-height: 35px;
+    margin-bottom: 30px;
+    position: relative;
+ }
+
+ .pricingTable .pricing-content li:last-child {
+    margin-bottom: 0;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        line-height: 20px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        /* Ограничаване на редовете */
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+ }
+
+.pricingTable .pricing-content li:not(:last-child):before {
+    content: "";
+    width: 30px;
+    height: 100%;
+    background: #727cb6;
+    position: absolute;
+    top: 0;
+    left: -10px;
+}
+
+.pricingTable .pricing-content li:not(:last-child):after {
+    content: "";
+    border-left: 15px solid #727cb6;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 20px;
+}
+
+.pricingTable .pricing-content i {
+    font-size: 16px;
+    color: #fff;
+    position: absolute;
+    top: 6px;
+    left: 0;
+    margin-right: 1rem;
+}
+
+.pricingTable .pricing-content i:after {
+    content: "";
+    border-right: 10px solid #4a59ab;
+    border-top: 10px solid transparent;
+    position: absolute;
+    top: -16px;
+    left: -10px;
+}
+
+ .pricingTable .price-value {
+     width: 150px;
+     height: 150px;
+     border-radius: 50%;
+     background: #727cb6;
+     margin: 0 auto;
+     overflow: hidden;
+     position: absolute;
+     bottom: -75px;
+     left: 0;
+     right: 0;
+ }
+
+ .pricingTable .book {
+     display: block;
+     padding: 21px 0;
+     font-size: 20px;
+     font-weight: 700;
+     color: #fff;
+     position: relative;
+ }
+
+ .pricingTable .book:after,
+ .pricingTable .book:before {
+     content: "";
+     width: 53%;
+     height: 15px;
+     background: #fff;
+     position: absolute;
+     bottom: -5px;
+     left: 0;
+     transform: rotate(20deg);
+ }
+
+ .pricingTable .book:after {
+     left: auto;
+     right: 0;
+     transform: rotate(-20deg);
+ }
+
+ .pricingTable .amount {
+     display: block;
+     padding: 20px 0;
+     font-size: 28px;
+     font-weight: 700;
+     color: #fff;
+ }
+
+ .pricingTable .amount span {
+     display: inline;
+     font-size: 16px;
+     border-bottom: 2px solid #fff;
+     position: relative;
+     top: -8px;
+ }
+
+ .row-detail{
+    width: 100%;
+ }
+
+
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .work .text h2 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .thumbnail li a img {
+        width: 50px;
+    }
+}
+
+ @media only screen and (max-width:990px) {
+     .pricingTable {
+         margin-bottom: 100px
+     }
+ }
