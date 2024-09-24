@@ -1,14 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-html {
-    height: 100%;
-    background-image: linear-gradient(to right top, #8e44ad 0%, #3498db 100%);
-}
-
 nav {
     position: fixed;
     margin: 2.5rem 0 0 0;
     width: 100%;
+    z-index: 1000;
 }
 
 nav ul {
@@ -31,7 +27,7 @@ nav ul li a {
     text-transform: uppercase;
     color: rgba(0, 35, 122, 0.5);
     font-size: 1.2rem;
-    text-decoration: none;
+    text-decoration: none !important;
     display: block;
     align-items: center;
 }
