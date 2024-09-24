@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Gemstones&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Gemstones&family=Rubik+Glitch&family=Rubik+Microbe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Rubik+Burned&family=Rubik+Gemstones&family=Rubik+Glitch&family=Rubik+Microbe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&family=Rubik+Wet+Paint&display=swap');
+
+.item-slider {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-size: cover;
+}
+
+.slide-1 {
+    background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1726874196/ATV_-_Guest_Page_zxszpy.jpg);
+}
+
+.slide-2 {
+    background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1726874204/Sunset_Ocean_Jet_Ski_-_Guest_Page_njfbz6.jpg);
+}
+
+.slide-3 {
+    background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1726874196/Diving-Guest_Page_js1p2o.jpg);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+
+.banner-content h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(90deg, #c9f2f4, #8de1f2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-family: "Rubik Gemstones", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.banner-content h4 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+font-family: "Rubik Wet Paint", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    background: linear-gradient(90deg, #b3cb27, #2093e6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: white;
+    margin-bottom: 3rem;
+    margin-top: 1.5rem;
+    font-family: "Rubik Glitch", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    background: linear-gradient(90deg, #f9fafa, #28e43e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content p strong {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.header-btn {
+    color: #37b4bd;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    text-decoration: none !important;
+    margin-top: 1rem;
+    position: relative;
+    font-family: "Faster One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.4rem;
+    letter-spacing: 0.5rem;
+}
+
+.header-btn:hover {
+    background: transparent;
+    color: #06c610;
+    border: 2px solid #096b70;
+    transform: translateY(-3px);
+}
+
+.header-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.header-btn:hover::before {
+    opacity: 1;
+}
+
+.owl-stage{
+    width: 12952px !important;
+}
