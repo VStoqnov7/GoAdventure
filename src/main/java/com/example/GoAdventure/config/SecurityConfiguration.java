@@ -15,23 +15,23 @@ public class SecurityConfiguration {
         return httpSecurity.authorizeHttpRequests(
                 authorizeRequests -> authorizeRequests
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers("/", "/user/login", "/user/register", "/user/login-error","/about","/contact-us/**","/error").permitAll()
-                        .requestMatchers("/**").hasRole(Role.USER.name())
-                        .requestMatchers("/**").hasRole(Role.ADMIN.name())
+                        .requestMatchers("/", "/login-register/**", "/login-register/login-error", "/contact-us/**", "/error").permitAll()
+                        .requestMatchers("/home", "/adventures", "/logout").hasRole(Role.USER.name())
+                        .requestMatchers("/services/**").hasRole(Role.ADMIN.name())
                         .anyRequest().authenticated()
         ).formLogin(
                 formLogin -> {
                     formLogin
-                            .loginPage("/user/login")
-                            .usernameParameter("username")
-                            .passwordParameter("password")
-                            .defaultSuccessUrl("/")
-                            .failureForwardUrl("/user/sign-up-sign-in");
+                            .loginPage("/login-register")
+                            .usernameParameter("loginEmail")
+                            .passwordParameter("loginPassword")
+                            .defaultSuccessUrl("/home")
+                            .failureForwardUrl("/login-register/login-error");
                 }
         ).logout(
                 logout -> {
                     logout
-                            .logoutUrl("/user/logout")
+                            .logoutUrl("/logout")
                             .logoutSuccessUrl("/")
                             .invalidateHttpSession(true)
                             .deleteCookies("JSESSIONID");
