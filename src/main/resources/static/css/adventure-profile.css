@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Eater&display=swap');
 
-
 body{
     background-image: url("https://res.cloudinary.com/db1rc9fon/image/upload/v1726785164/flat-lay-map-hat-wooden-table_lkvbor.jpg");
     position: relative;
@@ -136,7 +135,6 @@ body{
     border: 1px solid #abd4f8;
 }
 
-
  a {
      text-decoration: none;
  }
@@ -226,15 +224,14 @@ body{
 
  .pricingTable .pricing-content li:last-child {
     margin-bottom: 0;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        line-height: 20px;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        /* Ограничаване на редовете */
-        -webkit-box-orient: vertical;
-        text-overflow: ellipsis;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    line-height: 20px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
  }
 
 .pricingTable .pricing-content li:not(:last-child):before {
@@ -295,6 +292,12 @@ body{
      font-weight: 700;
      color: #fff;
      position: relative;
+     text-decoration: none;
+ }
+
+ .pricingTable .book:hover{
+    transform: scale(1.15);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
  }
 
  .pricingTable .book:after,
@@ -331,50 +334,35 @@ body{
      top: -8px;
  }
 
- .row-detail{
+ form{
     width: 100%;
  }
 
+ .delete-button {
+     position: absolute;
+     bottom: 20px;
+     right: 20px;
+     display: none;
+     padding: 10px 20px;
+     background-color: #ff4d4d;
+     color: #fff;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
 
+ .pricingTable:hover .delete-button {
+     display: block;
+ }
 
-@media (min-width: 576px) {
-    .container {
-        max-width: 540px;
-    }
-}
+ .delete-button:hover {
+     background-color: #ff1a1a;
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+     transform: scale(1.15);
+     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+ }
 
-@media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 992px) {
-    .container {
-        max-width: 960px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1140px;
-    }
-}
-
-@media (max-width: 991.98px) {
-    .work .text h2 {
-        font-size: 40px;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .thumbnail li a img {
-        width: 50px;
-    }
-}
-
- @media only screen and (max-width:990px) {
-     .pricingTable {
-         margin-bottom: 100px
-     }
+ .colum-table{
+    width: 100% !important;
+    padding: 0 0.9rem;
  }
