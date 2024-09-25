@@ -21,10 +21,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         this.userRepository = userRepository;
     }
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return this.userRepository.findByUsername(username)
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return this.userRepository.findByEmail(email)
                 .map(this::map)
-                .orElseThrow(() -> new UsernameNotFoundException("User with name " + username + " not found!"));
+                .orElseThrow(() -> new UsernameNotFoundException("User with email " + email + " not found!"));
     }
 
     private UserDetails map(User user) {
@@ -33,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         return new org.springframework.security.core.userdetails.User(
-                user.getUsername(),
+                user.getEmail(),
                 user.getPassword(),
                 user.getRoles().stream().map(this::mapRole).collect(Collectors.toList())
         );
