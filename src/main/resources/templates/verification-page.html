@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <link th:include="~{fragments/head :: head}">
+    <link rel="stylesheet" href="/css/verification-page.css">
+
+</head>
+
+<body>
+<div class="container">
+    <h1>Confirm Your Account</h1>
+    <p>Thank you for registering! Please confirm your registration by clicking the button below:</p>
+    <form th:action="@{/login-register/confirm-account}" method="get">
+        <input type="hidden" name="token" th:value="${token}"/>
+        <button type="submit">Confirm Your Account</button>
+        <p>If you cannot click the button, please copy and paste the following URL into your browser:</p>
+        <a th:href="${confirmationUrl}" th:text="${confirmationUrl}"></a>
+    </form>
+</div>
+
+</body>
+</html>
