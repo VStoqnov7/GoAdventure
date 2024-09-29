@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <link th:include="~{fragments/head :: head}">
+    <link rel="stylesheet" href="/css/services.css">
+
+</head>
+
+<body>
+
+<div>
+    <nav th:replace="~{fragments/navigation}"></nav>
+</div>
+
+<section class="section">
+    <div class="adventure" style="flex: 1; margin-right: 20px;">
+        <div class="form">
+            <h1 class="form-title">Create Your Adventure</h1>
+            <form class="adventure-form" method="POST" enctype="multipart/form-data">
+                <div class="adventure-list">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" type="text" name="name" placeholder="Adventure Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input id="price" type="number" name="price" placeholder="Adventure Price" />
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input id="location" type="text" name="location" placeholder="Adventure Location" />
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select id="type" name="type">
+                            <option value="TYPE1">Type 1</option>
+                            <option value="TYPE2">Type 2</option>
+                            <option value="TYPE3">Type 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration (hours)</label>
+                        <input id="duration" type="number" name="duration" placeholder="Adventure Duration" />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" placeholder="Enter a detailed description"
+                                  rows="4" cols="30"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="images">Upload Image</label>
+                        <div class="file-upload-wrapper">
+                            <input id="images" class="file-upload" type="file" name="images" accept="image/*"
+                                   multiple />
+                            <label for="images" class="file-upload-label">
+                                <i class="fa fa-cloud-upload-alt"></i> Choose images
+                            </label>
+                        </div>
+                    </div>
+                    <div class="scroll-indicator-1"><i class="fa-solid fa-arrow-down-long"
+                                                       style="color: #63E6BE;"></i>
+                    </div>
+                </div>
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="adventure">
+        <div class="booking">
+            <h1 class="form-title">Approve Booking Requests</h1>
+            <div class="user-list">
+                <div class="user">
+                    <p><strong>First Name:</strong> John</p>
+                    <p><strong>Last Name:</strong> Doe</p>
+                    <p><strong>Email:</strong> john.doe@example.com</p>
+                    <p><strong>Mobile:</strong> +123456789</p>
+                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
+
+                    <div class="actions">
+                        <button class="reject-btn">Reject</button>
+                        <button class="allow-btn">Allow</button>
+                    </div>
+                </div>
+
+                <div class="user">
+                    <p><strong>First Name:</strong> Jane</p>
+                    <p><strong>Last Name:</strong> Smith</p>
+                    <p><strong>Email:</strong> jane.smith@example.com</p>
+                    <p><strong>Mobile:</strong> +987654321</p>
+                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
+
+                    <div class="actions">
+                        <button class="reject-btn">Reject</button>
+                        <button class="allow-btn">Allow</button>
+                    </div>
+                </div>
+                <div class="user">
+                    <p><strong>First Name:</strong> Jane</p>
+                    <p><strong>Last Name:</strong> Smith</p>
+                    <p><strong>Email:</strong> jane.smith@example.com</p>
+                    <p><strong>Mobile:</strong> +987654321</p>
+                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
+
+                    <div class="actions">
+                        <button class="reject-btn">Reject</button>
+                        <button class="allow-btn">Allow</button>
+                    </div>
+                </div>
+
+                <div class="user">
+                    <p><strong>First Name:</strong> Jane</p>
+                    <p><strong>Last Name:</strong> Smith</p>
+                    <p><strong>Email:</strong> jane.smith@example.com</p>
+                    <p><strong>Mobile:</strong> +987654321</p>
+                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
+
+                    <div class="actions">
+                        <button class="reject-btn">Reject</button>
+                        <button class="allow-btn">Allow</button>
+                    </div>
+                </div>
+                <div class="user">
+                    <p><strong>First Name:</strong> Jane</p>
+                    <p><strong>Last Name:</strong> Smith</p>
+                    <p><strong>Email:</strong> jane.smith@example.com</p>
+                    <p><strong>Mobile:</strong> +987654321</p>
+                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
+
+                    <div class="actions">
+                        <button class="reject-btn">Reject</button>
+                        <button class="allow-btn">Allow</button>
+                    </div>
+                </div>
+
+                <div class="user">
+                    <p><strong>First Name:</strong> Jane</p>
+                    <p><strong>Last Name:</strong> Smith</p>
+                    <p><strong>Email:</strong> jane.smith@example.com</p>
+                    <p><strong>Mobile:</strong> +987654321</p>
+                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
+
+                    <div class="actions">
+                        <button class="reject-btn">Reject</button>
+                        <button class="allow-btn">Allow</button>
+                    </div>
+                </div>
+                <div class="user">
+                    <p><strong>First Name:</strong> Jane</p>
+                    <p><strong>Last Name:</strong> Smith</p>
+                    <p><strong>Email:</strong> jane.smith@example.com</p>
+                    <p><strong>Mobile:</strong> +987654321</p>
+                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
+
+                    <div class="actions">
+                        <button class="reject-btn">Reject</button>
+                        <button class="allow-btn">Allow</button>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator-2"><i class="fa-solid fa-arrow-down-long" style="color: #63E6BE;"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="js/services-drag-scroll-hiding-arrow.js"></script>
+
+<footer th:replace="~{fragments/footer}"></footer>
+</body>
+</html>
