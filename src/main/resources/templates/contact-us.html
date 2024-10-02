@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <link th:include="~{fragments/head :: head}">
+    <link rel="stylesheet" href="/css/contact-us.css">
+
+</head>
+
+<body>
+
+<div>
+    <nav th:replace="~{fragments/navigation}"></nav>
+</div>
+
+<div class="hero-area">
+    <section class="slider-section">
+        <div class="container">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="slider-container">
+                            <div class="box">
+                                <div class="detail-box">
+                                    <h1>
+                                        GoAdventure
+                                    </h1>
+                                    <h2>
+                                        A
+                                        Human
+                                        Explostion1
+                                    </h2>
+                                </div>
+                                <div class="img-box">
+                                    <div class="play-btn">
+                                        <a href="">
+                                            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1726437192/play_spudhs.png"
+                                                 alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-box">
+                                <a th:href="${#authorization.expression('isAuthenticated()') ? '/......' : '/login-register'}">
+                                    Discover More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="slider-container">
+                            <div class="box">
+                                <div class="detail-box">
+                                    <h1>
+                                        GoAdventure
+                                    </h1>
+                                    <h2>
+                                        A
+                                        Human
+                                        Explostion2
+                                    </h2>
+                                </div>
+                                <div class="img-box">
+                                    <div class="play-btn">
+                                        <a href="">
+                                            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1726437192/play_spudhs.png"
+                                                 alt="">
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="btn-box">
+                                <a th:href="${#authorization.expression('isAuthenticated()') ? '/......' : '/login-register'}">
+                                    Discover More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="slider-container">
+                            <div class="box">
+                                <div class="detail-box">
+                                    <h1>
+                                        GoAdventure
+                                    </h1>
+                                    <h2>
+                                        A
+                                        Human
+                                        Explostion3
+                                    </h2>
+                                </div>
+                                <div class="img-box">
+                                    <div class="play-btn">
+                                        <a href="">
+                                            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1726437192/play_spudhs.png"
+                                                 alt="">
+                                        </a>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="btn-box">
+                                <a th:href="${#authorization.expression('isAuthenticated()') ? '/......' : '/login-register'}">
+                                    Discover More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-carousel-control">
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<section class="trip-section layout-padding" id="bookTrip">
+    <div class="container">
+        <div class="heading-container">
+            <h2>
+                Contact Us
+            </h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box container-bg">
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1726437388/airplane_drjlv7.png" alt="">
+            </div>
+            <div class="form-container">
+                <form>
+                    <div class="form-group">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa-regular fa-user"></i>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Full Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Email Address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa-solid fa-thumbtack"></i>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text message">
+                                    <i class="fa-regular fa-message"></i>
+                                </div>
+                            </div>
+                            <textarea class="form-control" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="btn-box">
+                        <button type="submit" class="">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog-section" id="blog">
+    <div class="container">
+        <div class="heading-container">
+            <h2>
+                Our Blog
+            </h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box container-bg">
+            <div class="blog-box">
+                <div class="date-box">
+                    <h4>
+                        $160
+                    </h4>
+                </div>
+                <div class="detail-box">
+                    <div class="img-box">
+                        <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
+                             alt="">
+                    </div>
+                    <div class="text-box">
+                        <h5>
+                            Warsaw Day Tour
+                        </h5>
+                        <h6>
+                            Duration: 4 hours 20 mins
+                        </h6>
+                    </div>
+                </div>
+                <a th:href="${#authorization.expression('isAuthenticated()') ? '/......' : '/login-register'}">
+                    Book Now
+                </a>
+            </div>
+            <div class="blog-box-cover">
+                <div class="blog-box">
+                    <div class="date-box">
+                        <h4>
+                            $130
+                        </h4>
+                    </div>
+                    <div class="detail-box">
+                        <div class="img-box">
+                            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
+                                 alt="">
+                        </div>
+                        <div class="text-box">
+                            <h5>
+                                Islands Trip
+                            </h5>
+                            <h6>
+                                Duration: 4 hours 20 mins
+                            </h6>
+                        </div>
+                    </div>
+                    <a th:href="${#authorization.expression('isAuthenticated()') ? '/......' : '/login-register'}">
+                        Book Now
+                    </a>
+                </div>
+                <div class="blog-box">
+                    <div class="date-box">
+                        <h4>
+                            $150
+                        </h4>
+                    </div>
+                    <div class="detail-box">
+                        <div class="img-box">
+                            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
+                                 alt="">
+                        </div>
+                        <div class="text-box">
+                            <h5>
+                                Santorini Islands Tour
+                            </h5>
+                            <h6>
+                                Duration: 4 hours 20 mins
+                            </h6>
+                        </div>
+                    </div>
+                    <a th:href="${#authorization.expression('isAuthenticated()') ? '/......' : '/login-register'}">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+            <div class="blog-box">
+                <div class="date-box">
+                    <h4>
+                        $140
+                    </h4>
+                </div>
+                <div class="detail-box">
+                    <div class="img-box">
+                        <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
+                             alt="">
+                    </div>
+                    <div class="text-box">
+                        <h5>
+                            Warsaw Day Tour
+                        </h5>
+                        <h6>
+                            Duration: 4 hours 20 mins
+                        </h6>
+                    </div>
+                </div>
+                <a th:href="${#authorization.expression('isAuthenticated()') ? '/......' : '/login-register'}">
+                    Book Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="~{fragments/footer}"></footer>
+</body>
+</html>
