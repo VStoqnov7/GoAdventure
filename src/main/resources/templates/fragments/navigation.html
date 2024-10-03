@@ -1,17 +1,39 @@
 <nav>
-    <a href="#">
-        <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393300/file_ox9ga4.png" alt="Logo">
-    </a>
+    <th:block sec:authorize="isAuthenticated()">
+        <a th:href="@{/home}">
+            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393300/file_ox9ga4.png" alt="Logo">
+        </a>
+    </th:block>
+    <th:block sec:authorize="isAnonymous()">
+        <a th:href="@{/}">
+            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393300/file_ox9ga4.png" alt="Logo">
+        </a>
+    </th:block>
     <div class="menu-button">
         <a href=""><i class="fa-solid fa-bars"></i></a>
     </div>
     <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Adventures</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Sign in</a></li>
-        <li><a href="#">Sign Out</a></li>
+        <th:block sec:authorize="isAuthenticated()">
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/adventures}">Adventures</a></li>
+        </th:block>
+        <th:block sec:authorize="isAnonymous()">
+            <li><a th:href="@{/}">Home</a></li>
+        </th:block>
+        <th:block sec:authorize="hasRole('ADMIN')">
+            <li><a th:href="@{/services}">Services</a></li>
+        </th:block>
+        <li><a th:href="@{/contact-us}">Contact us</a></li>
+        <th:block sec:authorize="!isAuthenticated()">
+            <li><a th:href="@{/login-register}">Sign in</a></li>
+        </th:block>
+        <th:block sec:authorize="isAuthenticated()">
+            <li>
+                <form method="POST" th:action="@{/logout}">
+                    <button type="submit">Sign Out</button>
+                </form>
+            </li>
+        </th:block>
     </ul>
 
     <script src="/js/menu.js"></script>
