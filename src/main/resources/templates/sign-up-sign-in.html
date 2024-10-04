@@ -14,22 +14,69 @@
 </div>
 
 <div class="sign-up-sign-in">
-    <div class="container" id="container">
+    <div class="container" id="container" th:classappend="${hasErrors} ? 'right-panel-active' : ''">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form method="POST" th:action="@{/login-register/register}" th:object="${userRegisterDTO}">
                 <h1>Create Account</h1>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
+                <input id="username"
+                       type="text"
+                       placeholder="Username"
+                       name="username"
+                       th:field="*{username}">
+                <small id="usernameError"
+                       class="text-info rounded"
+                       th:if="${#fields.hasErrors('username')}"
+                       th:errors="*{username}">Username Error
+                </small>
+                <input id="phone"
+                       type="tel"
+                       placeholder="Phone Number"
+                       name="phone"
+                       th:field="*{phone}">
+                <small id="phoneError"
+                       class="text-info rounded"
+                       th:if="${#fields.hasErrors('phone')}"
+                       th:errors="*{phone}">Password Error
+                </small>
+                <input id="email"
+                       type="email"
+                       placeholder="Email"
+                       name="email"
+                       th:field="*{email}">
+                <small id="emailError"
+                       class="text-info rounded"
+                       th:if="${#fields.hasErrors('email')}"
+                       th:errors="*{email}">Email Error
+                </small>
+                <input id="password"
+                       type="password"
+                       placeholder="Password"
+                       name="password"
+                       th:field="*{password}">
+                <small id="passwordError"
+                       class="text-info rounded"
+                       th:if="${#fields.hasErrors('password')}"
+                       th:errors="*{password}">Password Error
+                </small>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form method="POST" th:action="@{/login-register}">
                 <h1>Sign In</h1>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input id="loginEmail"
+                       type="email"
+                       placeholder="Email"
+                       name="loginEmail">>
+                <input id="loginPassword"
+                       type="password"
+                       placeholder="Password"
+                       name="loginPassword">
                 <button>Sign In</button>
+                <div class="alert alert-danger fade show mt-4" role="alert"
+                     th:if="${bad_credentials}">
+                    <strong>Oops!</strong> <span>Login failed. Please check your email and password.</span>
+                </div>
             </form>
         </div>
         <div class="overlay-container">
