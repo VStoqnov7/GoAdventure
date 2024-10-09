@@ -24,3 +24,10 @@ spring:
     hidden-method:
       filter:
         enabled: true
+
+  # Administrator
+admin:
+  username: ${ADMIN_USERNAME}
+  password: ${ADMIN_PASSWORD}
+  email: ${ADMIN_EMAIL}
+  phone: ${ADMIN_PHONE_NUMBER}
