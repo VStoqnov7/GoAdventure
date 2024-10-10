@@ -10,6 +10,12 @@ spring:
     init:
       mode: never
 
+  # Multipart settings
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
   # JPA Properties
   jpa:
     properties:
@@ -25,9 +31,34 @@ spring:
       filter:
         enabled: true
 
+  # Email Sending
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USER}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+# Cloudinary
+cloudinary:
+  name: ${CLOUDINARY_NAME}
+  api-key: ${CLOUDINARY_API_KEY}
+  api-secret: ${CLOUDINARY_API_SECRET}
+
   # Administrator
 admin:
   username: ${ADMIN_USERNAME}
   password: ${ADMIN_PASSWORD}
   email: ${ADMIN_EMAIL}
   phone: ${ADMIN_PHONE_NUMBER}
+
+  # Application settings
+app:
+  mysql:
+    host: ${HOST}
+    port: ${PORT}
