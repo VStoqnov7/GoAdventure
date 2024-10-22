@@ -32,6 +32,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("User is banned.");
         }
 
+        if (!user.isEnabled()) {
+            throw new UsernameNotFoundException("User is not enabled");
+        }
+
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(),
                 user.getPassword(),
