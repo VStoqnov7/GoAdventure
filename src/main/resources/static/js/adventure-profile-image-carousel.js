@@ -29,9 +29,12 @@
   });
 
   owl.on("changed.owl.carousel", function (event) {
+    const carouselIndex = (event.item.index - event.relatedTarget._clones.length / 2) % event.item.count;
+    const actualIndex = (carouselIndex + event.item.count) % event.item.count;
+
     $(".thumbnail li")
       .removeClass("active")
-      .eq(event.item.index - 2)
+      .eq(actualIndex)
       .addClass("active");
   });
 })(jQuery);
