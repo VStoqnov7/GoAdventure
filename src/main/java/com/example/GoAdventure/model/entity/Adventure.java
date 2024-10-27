@@ -13,26 +13,30 @@ import java.util.List;
 @Setter
 @Accessors(chain = true)
 @Entity
-@Table(name = "adventure")
+@Table(name = "adventures")
 public class Adventure extends BaseEntity{
 
     @Column(nullable = false)
     private String name;
 
-    @ElementCollection
-    @Column(name = "photo_url")
-    private List<String> photoUrls;
-
-    @Column(nullable = false)
-    private String description;
-
     @Column(nullable = false)
     private BigDecimal price;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Location location;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private AdventureType type;
+
+    @Column(nullable = false)
+    private Integer duration;
+
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String description;
+
+//  Max 6 pictures
+    @ElementCollection
+    @Column(name = "photo_url")
+    private List<String> photoUrls;
 }
