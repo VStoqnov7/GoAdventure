@@ -2,19 +2,18 @@ package com.example.GoAdventure.web;
 
 import com.example.GoAdventure.model.dtos.UserRegisterDTO;
 import com.example.GoAdventure.service.interfaces.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("/login-register")
 public class LoginRegisterController {
-
     private final UserService userService;
 
     public LoginRegisterController(UserService userService) {
@@ -35,7 +34,7 @@ public class LoginRegisterController {
     @PostMapping("/login-error")
     public ModelAndView onLoginFailure(ModelAndView model) {
         model.addObject("bad_credentials", true);
-        model.setViewName("login");
+        model.setViewName("sign-up-sign-in");
         return model;
     }
 
@@ -50,6 +49,30 @@ public class LoginRegisterController {
         }
         this.userService.saveUser(userRegisterDTO);
         model.setViewName("redirect:/");
+        return model;
+    }
+
+    @GetMapping("/confirm-account")
+    public ModelAndView confirmUserAccount(@RequestParam("token") String token, ModelAndView model) {
+        boolean isConfirmed = userService.confirmUserAccount(token);
+
+        if (isConfirmed) {
+            model.addObject("token", token);
+            model.setViewName("redirect:/login-register");
+        } else {
+            model.setViewName("redirect:/login-register?error=invalid-token");
+        }
+
+        return model;
+    }
+
+    @GetMapping("/verification-page")
+    public ModelAndView verificationPage(@RequestParam("token") String token, ModelAndView model, HttpServletRequest request) {
+        String confirmationUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() +
+                "/login-register/confirm-account?token=" + token;
+        model.addObject("confirmationUrl", confirmationUrl);
+        model.addObject("token", token);
+        model.setViewName("verification-page");
         return model;
     }
 }
