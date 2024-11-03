@@ -18,45 +18,114 @@
     <div class="adventure" style="flex: 1; margin-right: 20px;">
         <div class="form">
             <h1 class="form-title">Create Your Adventure</h1>
-            <form class="adventure-form" method="POST" enctype="multipart/form-data">
+            <form class="adventure-form" th:method="POST" th:action="@{/services/createAdventure}" th:object="${adventureDTO}" enctype="multipart/form-data">
                 <div class="adventure-list">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input id="name" type="text" name="name" placeholder="Adventure Name" />
+                        <input id="name"
+                               type="text"
+                               name="name"
+                               th:field="*{name}"
+                               placeholder="Adventure Name"/>
+                        <div class="validation alert alert-danger mt-2"
+                             th:if="${#fields.hasErrors('name')}"
+                             th:errors="*{name}">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="price">Price</label>
-                        <input id="price" type="number" name="price" placeholder="Adventure Price" />
+                        <input id="price"
+                               type="number"
+                               step="0.01"
+                               name="price"
+                               th:field="*{price}"
+                               placeholder="Adventure Price" />
+                        <div class="validation alert alert-danger mt-2"
+                             th:if="${#fields.hasErrors('price')}"
+                             th:errors="*{price}">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="location">Location</label>
-                        <input id="location" type="text" name="location" placeholder="Adventure Location" />
+                        <label for="locationName">Location name</label>
+                        <input id="locationName"
+                               type="text"
+                               name="locationName"
+                               th:field="*{locationName}"
+                               placeholder="Location name" />
+                        <div class="validation alert alert-danger mt-2"
+                             th:if="${#fields.hasErrors('locationName')}"
+                             th:errors="*{locationName}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="locationCoordinates">Coordinates</label>
+                        <input id="locationCoordinates"
+                               type="text"
+                               name="locationCoordinates"
+                               th:field="*{locationCoordinates}"
+                               placeholder="Enter coordinates /latitude, longitude/" />
+                        <div class="validation alert alert-danger mt-2"
+                             th:if="${#fields.hasErrors('locationCoordinates')}"
+                             th:errors="*{locationCoordinates}">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="type">Type</label>
-                        <select id="type" name="type">
-                            <option value="TYPE1">Type 1</option>
-                            <option value="TYPE2">Type 2</option>
-                            <option value="TYPE3">Type 3</option>
+                        <select id="type"
+                                name="type"
+                                th:field="*{type}">
+                            <option value="" selected>- Select type -</option>
+                            <option th:each="type : ${types}"
+                                    th:value="${type.name()}"
+                                    th:text="${type.getName()}">
+                            </option>
                         </select>
+                        <div class="validation alert alert-danger mt-2"
+                             th:if="${#fields.hasErrors('type')}"
+                             th:errors="*{type}">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="duration">Duration (hours)</label>
-                        <input id="duration" type="number" name="duration" placeholder="Adventure Duration" />
+                        <input id="duration"
+                               type="number"
+                               name="duration"
+                               th:field="*{duration}"
+                               placeholder="Adventure Duration" />
+                        <div class="validation alert alert-danger mt-2"
+                             th:if="${#fields.hasErrors('duration')}"
+                             th:errors="*{duration}">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea id="description" name="description" placeholder="Enter a detailed description"
-                                  rows="4" cols="30"></textarea>
+                        <textarea id="description"
+                                  name="description"
+                                  th:field="*{description}"
+                                  placeholder="Enter a detailed description"
+                                  rows="4"
+                                  cols="30"></textarea>
+                        <div class="validation alert alert-danger mt-2"
+                             th:if="${#fields.hasErrors('description')}"
+                             th:errors="*{description}">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="images">Upload Image</label>
+                        <label for="photoUrls">Upload Image</label>
                         <div class="file-upload-wrapper">
-                            <input id="images" class="file-upload" type="file" name="images" accept="image/*"
+                            <input id="photoUrls"
+                                   class="file-upload"
+                                   type="file"
+                                   name="photoUrls"
+                                   th:field="*{photoUrls}"
                                    multiple />
-                            <label for="images" class="file-upload-label">
+                            <label for="photoUrls" class="file-upload-label">
                                 <i class="fa fa-cloud-upload-alt"></i> Choose images
                             </label>
+                        </div>
+                        <div class="validation alert alert-danger mt-2"
+                             th:if="${#fields.hasErrors('photoUrls')}"
+                             th:errors="*{photoUrls}">
                         </div>
                     </div>
                     <div class="scroll-indicator-1"><i class="fa-solid fa-arrow-down-long"
