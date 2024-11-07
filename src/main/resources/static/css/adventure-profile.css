@@ -59,6 +59,7 @@ body{
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 20px 35px -30px rgba(0, 0, 0, 0.26);
+    cursor: pointer;
 }
 
 .work .img:after {
@@ -115,6 +116,7 @@ body{
     transform: scale(0.8);
     transition: 0.3s all ease;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    height: 6rem;
 }
 
 .thumbnail li.active a img {
@@ -140,7 +142,7 @@ body{
  }
 
  .pricingTable {
-    padding-bottom: 200px;
+    padding-bottom: 1.2rem;
     background: #fff;
     text-align: center;
     position: relative;
@@ -220,21 +222,10 @@ body{
     line-height: 35px;
     margin-bottom: 30px;
     position: relative;
+    flex-wrap: wrap;
  }
 
- .pricingTable .pricing-content li:last-child {
-    margin-bottom: 0;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    line-height: 20px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
- }
-
-.pricingTable .pricing-content li:not(:last-child):before {
+.pricingTable .pricing-content li:before {
     content: "";
     width: 30px;
     height: 100%;
@@ -244,7 +235,7 @@ body{
     left: -10px;
 }
 
-.pricingTable .pricing-content li:not(:last-child):after {
+.pricingTable .pricing-content li:after {
     content: "";
     border-left: 15px solid #727cb6;
     border-top: 15px solid transparent;
@@ -280,7 +271,7 @@ body{
      margin: 0 auto;
      overflow: hidden;
      position: absolute;
-     bottom: -75px;
+     bottom: -110px;
      left: 0;
      right: 0;
  }
@@ -340,7 +331,7 @@ body{
 
  .delete-button {
      position: absolute;
-     bottom: 20px;
+     bottom: 2px;
      right: 20px;
      display: none;
      padding: 10px 20px;
@@ -366,3 +357,205 @@ body{
     width: 100% !important;
     padding: 0 0.9rem;
  }
+
+.pricing-content li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border-right: 3px solid #727cb6;
+    border-bottom: 3px solid #727cb6;
+    padding: 10px;
+}
+
+.pricing-content li:hover {
+    background-color: #727cb6;
+}
+
+.pricing-content li:hover .info-text {
+    color: white;
+}
+
+.pricing-content i {
+    margin-right: 15px;
+    color: #007bff;
+    font-size: 1.5em;
+}
+
+.info-title {
+    font-weight: bold;
+    color: #333;
+    margin-right: 0.3rem;
+    margin-left: 2.7rem;
+}
+
+.info-text {
+    color: #555;
+    font-style: italic;
+}
+
+.pricingTable .pricing-content li .info-text {
+    white-space: normal;
+    overflow-wrap: break-word;
+    max-width: 230px;
+    flex: 1;
+    text-align: left;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+    animation: popIn 0.3s ease forwards;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.confirm-button,
+.close-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.confirm-button {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.confirm-button:hover {
+    background-color: #218838;
+}
+
+.close-button {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.close-button:hover {
+    background-color: #c82333;
+}
+
+input[type="date"] {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.error-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.error-button:hover {
+    background-color: #e53935;
+}
+
+.success-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.success-button:hover {
+    background-color: #45a049;
+}
