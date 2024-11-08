@@ -16,7 +16,7 @@ public class SecurityConfiguration {
                 authorizeRequests -> authorizeRequests
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/", "/login-register/**", "/login-register/login-error", "/contact-us/**", "/error","/confirm-account").permitAll()
-                        .requestMatchers("/home", "/adventures").hasRole(Role.USER.name())
+                        .requestMatchers("/home/**", "/adventures/**").hasRole(Role.USER.name())
                         .requestMatchers("/**").hasRole(Role.ADMIN.name())
                         .anyRequest().authenticated()
         ).formLogin(
