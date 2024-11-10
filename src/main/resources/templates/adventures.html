@@ -28,73 +28,75 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-12">
-                        <form action="#" class="search-box">
+                        <form th:action="@{/adventures/search}" method="POST" class="search-box">
                             <div class="input-form mb-30">
-                                <input type="text" placeholder="When Would you like to go ?">
+                                <input type="text" name="cityName" placeholder="Where would you like to go?"
+                                       th:classappend="${cityNameError} ? 'is-invalid' : ''"
+                                       th:value="${cityNameText}">
                             </div>
                             <div class="select-form mb-30 option">
-                                <button id="toggleOptions" class="select-btn" type="button">When</button>
+                                <div id="selectedOption" class="select-btn"
+                                     th:text="${adventureTypeText != null && adventureTypeText != '' ? adventureTypeText : 'Choose an Adventure'}"
+                                     th:classappend="${adventureTypeError} ? 'is-invalid' : ''"
+                                     >
+                                    Choose an Adventure
+                                </div>
+                                <input type="hidden" id="adventureTypeInput" name="adventureType"
+                                       th:value="${adventureTypeText}">
                                 <div id="optionsContainer" class="options-container">
                                     <div class="option-column">
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
+                                        <a th:each="index : ${range1}"
+                                           th:text="${types[index].getName()}"
+                                           class="option-link"
+                                           th:attr="data-value=${types[index].getName()}"
+                                           onclick="selectOption(this)"></a>
                                     </div>
                                     <div class="option-column">
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
+                                        <a th:each="index : ${range2}"
+                                           th:text="${types[index].getName()}"
+                                           class="option-link"
+                                           th:attr="data-value=${types[index].getName()}"
+                                           onclick="selectOption(this)"></a>
                                     </div>
                                     <div class="option-column">
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
+                                        <a th:each="index : ${range3}"
+                                           th:text="${types[index].getName()}"
+                                           class="option-link"
+                                           th:attr="data-value=${types[index].getName()}"
+                                           onclick="selectOption(this)"></a>
                                     </div>
                                     <div class="option-column">
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
+                                        <a th:each="index : ${range4}"
+                                           th:text="${types[index].getName()}"
+                                           class="option-link"
+                                           th:attr="data-value=${types[index].getName()}"
+                                           onclick="selectOption(this)"></a>
                                     </div>
                                     <div class="option-column">
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
+                                        <a th:each="index : ${range5}"
+                                           th:text="${types[index].getName()}"
+                                           class="option-link"
+                                           th:attr="data-value=${types[index].getName()}"
+                                           onclick="selectOption(this)"></a>
                                     </div>
                                     <div class="option-column">
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
+                                        <a th:each="index : ${range6}"
+                                           th:text="${types[index].getName()}"
+                                           class="option-link"
+                                           th:attr="data-value=${types[index].getName()}"
+                                           onclick="selectOption(this)"></a>
                                     </div>
                                     <div class="option-column">
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
-                                        <a href="#">Services</a>
+                                        <a th:each="index : ${range7}"
+                                           th:text="${types[index].getName()}"
+                                           class="option-link"
+                                           th:attr="data-value=${types[index].getName()}"
+                                           onclick="selectOption(this)"></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="search-form mb-30">
-                                <a href="#">Search</a>
+                                <button type="submit" class="search-button">Search</button>
                             </div>
                         </form>
                     </div>
@@ -167,190 +169,147 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-6">
-                <div class="single-place mb-30">
-                    <div class="place-img">
-                        <a href="#">
-                            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="place-cap">
-                        <div class="place-cap-top">
-                            <span><i class="fas fa-star"></i><span>8.0 Cool</span> </span>
-                            <h3><a href="#">The Dark Forest Adventure1</a></h3>
-                            <p class="dolor">$1870 <span>/ Per Person</span></p>
-                        </div>
-                        <div class="place-cap-bottom">
-                            <ul>
-                                <li><i class="far fa-clock"></i>3 Days</li>
-                                <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                            </ul>
-                        </div>
-                    </div>
+            <th:block th:if="${allAdventureList == null or allAdventureList.content.isEmpty()}">
+                <div class="no-adventures">
+                    <h3>No adventures found.</h3>
+                    <p>Try changing the filter or searching in a different location.</p>
                 </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6">
-                <div class="single-place mb-30">
-                    <div class="place-img">
-                        <a href="#">
-                            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="place-cap">
-                        <div class="place-cap-top">
-                            <span><i class="fas fa-star"></i><span>8.0 Cool</span> </span>
-                            <h3><a href="#">The Dark Forest Adventure</a></h3>
-                            <p class="dolor">$1870 <span>/ Per Person</span></p>
-                        </div>
-                        <div class="place-cap-bottom">
-                            <ul>
-                                <li><i class="far fa-clock"></i>3 Days</li>
-                                <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6">
-                <div class="single-place mb-30">
-                    <div class="place-img">
-                        <a href="#">
-                            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="place-cap">
-                        <div class="place-cap-top">
-                            <span><i class="fas fa-star"></i><span>8.0 Cool</span> </span>
-                            <h3><a href="#">The Dark Forest Adventure</a></h3>
-                            <p class="dolor">$1870 <span>/ Per Person</span></p>
-                        </div>
-                        <div class="place-cap-bottom">
-                            <ul>
-                                <li><i class="far fa-clock"></i>3 Days</li>
-                                <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                            </ul>
+            </th:block>
+
+            <th:block th:unless="${allAdventureList == null or allAdventureList.content.isEmpty()}">
+                <th:block th:each="adventure : ${allAdventureList.content}">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-place mb-30">
+                            <div class="place-img">
+                                <a th:href="@{'/adventures/' + ${adventure.id}}">
+                                    <img th:src="${adventure.photoUrls.get(0)}" alt="Adventure Image">
+                                </a>
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <span><i class="fas fa-star"></i><span th:text="Cool"></span> </span>
+                                    <h3><a th:href="@{'/adventures/' + ${adventure.id}}" th:text="${adventure.name}"></a></h3>
+                                    <p class="dolor"
+                                       th:text="'$' + (${adventure.price} % 1 == 0 ? ${#numbers.formatDecimal(adventure.price, 0, 0)} : ${#numbers.formatDecimal(adventure.price, 0, 2)}) + ' / Per Person'">
+                                    </p>
+                                </div>
+                                <div class="place-cap-bottom">
+                                    <ul>
+                                        <li><i class="far fa-clock"></i><span th:text="${adventure.duration} + ' Hours'"></span></li>
+                                        <li><i class="fas fa-map-marker-alt"></i><span th:text="${adventure.locationName}"></span></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6">
-                <div class="single-place mb-30">
-                    <div class="place-img">
-                        <a href="#">
-                            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="place-cap">
-                        <div class="place-cap-top">
-                            <span><i class="fas fa-star"></i><span>8.0 Cool</span> </span>
-                            <h3><a href="#">The Dark Forest Adventure</a></h3>
-                            <p class="dolor">$1870 <span>/ Per Person</span></p>
-                        </div>
-                        <div class="place-cap-bottom">
-                            <ul>
-                                <li><i class="far fa-clock"></i>3 Days</li>
-                                <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6">
-                <div class="single-place mb-30">
-                    <div class="place-img">
-                        <a href="#">
-                            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="place-cap">
-                        <div class="place-cap-top">
-                            <span><i class="fas fa-star"></i><span>8.0 Cool</span> </span>
-                            <h3><a href="#">The Dark Forest Adventure</a></h3>
-                            <p class="dolor">$1870 <span>/ Per Person</span></p>
-                        </div>
-                        <div class="place-cap-bottom">
-                            <ul>
-                                <li><i class="far fa-clock"></i>3 Days</li>
-                                <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6">
-                <div class="single-place mb-30">
-                    <div class="place-img">
-                        <a href="#">
-                            <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                                 alt="">
-                        </a>
-                    </div>
-                    <div class="place-cap">
-                        <div class="place-cap-top">
-                            <span><i class="fas fa-star"></i><span>8.0 Cool</span> </span>
-                            <h3><a href="#">The Dark Forest Adventure</a></h3>
-                            <p class="dolor">$1870 <span>/ Per Person</span></p>
-                        </div>
-                        <div class="place-cap-bottom">
-                            <ul>
-                                <li><i class="far fa-clock"></i>3 Days</li>
-                                <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </th:block>
+            </th:block>
         </div>
     </div>
 </div>
 
 <!-- Pagination Controls -->
-<div class="row justify-content-center mt-3 section-pagination">
-    <div class="pagination-controls">
-        <div aria-label="Page navigation">
-            <ul class="pagination">
+<th:block th:if="${allAdventureList.totalElements > 0}">
+    <div class="row justify-content-center mt-3 section-pagination">
+        <div class="pagination-controls">
+            <div aria-label="Page navigation">
+                <ul class="pagination">
 
-                <!-- First Page -->
-                <li class="page-item disabled">
-                    <a class="page-link long-text" href="#">First</a>
-                </li>
+                    <!-- First Page -->
+                    <li class="page-item" th:classappend="${allAdventureList.number == 0 ? 'disabled' : ''}">
+                        <a th:unless="${allAdventureList.number == 0}" class="page-link long-text"
+                           th:href="@{'/adventures?page=0'}">First</a>
+                        <a th:if="${allAdventureList.number == 0}" class="page-link long-text" href="#">First</a>
+                    </li>
 
-                <!-- Previous Page -->
-                <li class="page-item disabled">
-                    <a class="page-link long-text" href="#">Previous</a>
-                </li>
+                    <!-- Previous Page -->
+                    <li class="page-item" th:classappend="${allAdventureList.number == 0 ? 'disabled' : ''}">
+                        <a th:unless="${allAdventureList.number == 0}" class="page-link long-text"
+                           th:href="@{'/adventures?page=' + ${allAdventureList.number - 1}}">Previous</a>
+                        <a th:if="${allAdventureList.number == 0}" class="page-link long-text" href="#">Previous</a>
+                    </li>
 
-                <!-- Page Numbers -->
-                <li class="page-item active">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item disabled"><span class="page-link">...</span></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">5</a>
-                </li>
+                    <!-- Page Numbers -->
+                    <th:block th:if="${allAdventureList.totalPages <= 5}">
+                        <th:block th:each="i : ${#numbers.sequence(0, allAdventureList.totalPages - 1)}">
+                            <li class="page-item" th:classappend="${allAdventureList.number == i ? 'active' : ''}">
+                                <a class="page-link"
+                                   th:href="@{'/adventures?page=' + ${i}}" th:text="${i + 1}"></a>
+                            </li>
+                        </th:block>
+                    </th:block>
 
-                <!-- Next Page -->
-                <li class="page-item">
-                    <a class="page-link long-text" href="#">Next</a>
-                </li>
+                    <th:block th:if="${allAdventureList.totalPages > 5}">
+                        <th:block th:if="${allAdventureList.number < 2}">
+                            <th:block th:each="i : ${#numbers.sequence(0, 4)}">
+                                <li class="page-item" th:classappend="${allAdventureList.number == i ? 'active' : ''}">
+                                    <a class="page-link"
+                                       th:href="@{'/adventures?page=' + ${i}}" th:text="${i + 1}"></a>
+                                </li>
+                            </th:block>
+                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                            <li class="page-item">
+                                <a class="page-link"
+                                   th:href="@{'/adventures?page=' + ${allAdventureList.totalPages - 1}}"
+                                   th:text="${allAdventureList.totalPages}"></a>
+                            </li>
+                        </th:block>
 
-                <!-- Last Page -->
-                <li class="page-item">
-                    <a class="page-link long-text" href="#">Last</a>
-                </li>
+                        <th:block th:if="${allAdventureList.number >= allAdventureList.totalPages - 2}">
+                            <li class="page-item">
+                                <a class="page-link"
+                                   th:href="@{'/adventures?page=0'}" th:text="1"></a>
+                            </li>
+                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                            <th:block th:each="i : ${#numbers.sequence(allAdventureList.totalPages - 5, allAdventureList.totalPages - 1)}">
+                                <li class="page-item" th:classappend="${allAdventureList.number == i ? 'active' : ''}">
+                                    <a class="page-link"
+                                       th:href="@{'/adventures?page=' + ${i}}" th:text="${i + 1}"></a>
+                                </li>
+                            </th:block>
+                        </th:block>
 
-            </ul>
+                        <th:block th:if="${allAdventureList.number >= 2 && allAdventureList.number < allAdventureList.totalPages - 2}">
+                            <li class="page-item">
+                                <a class="page-link"
+                                   th:href="@{'/adventures?page=0'}" th:text="1"></a>
+                            </li>
+                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                            <th:block th:each="i : ${#numbers.sequence(allAdventureList.number - 1, allAdventureList.number + 1)}">
+                                <li class="page-item" th:classappend="${allAdventureList.number == i ? 'active' : ''}">
+                                    <a class="page-link"
+                                       th:href="@{'/adventures?page=' + ${i}}" th:text="${i + 1}"></a>
+                                </li>
+                            </th:block>
+                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                            <li class="page-item">
+                                <a class="page-link"
+                                   th:href="@{'/adventures?page=' + ${allAdventureList.totalPages - 1}}"
+                                   th:text="${allAdventureList.totalPages}"></a>
+                            </li>
+                        </th:block>
+                    </th:block>
+
+                    <!-- Next Page -->
+                    <li class="page-item" th:classappend="${allAdventureList.number == allAdventureList.totalPages - 1 ? 'disabled' : ''}">
+                        <a th:unless="${allAdventureList.number == allAdventureList.totalPages - 1}" class="page-link long-text"
+                           th:href="@{'/adventures?page=' + ${allAdventureList.number + 1}}">Next</a>
+                        <a th:if="${allAdventureList.number == allAdventureList.totalPages - 1}" class="page-link long-text" href="#">Next</a>
+                    </li>
+
+                    <!-- Last Page -->
+                    <li class="page-item" th:classappend="${allAdventureList.number == allAdventureList.totalPages - 1 ? 'disabled' : ''}">
+                        <a th:unless="${allAdventureList.number == allAdventureList.totalPages - 1}" class="page-link long-text"
+                           th:href="@{'/adventures?page=' + ${allAdventureList.totalPages - 1}}">Last</a>
+                        <a th:if="${allAdventureList.number == allAdventureList.totalPages - 1}" class="page-link long-text" href="#">Last</a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+</th:block>
+<!-- End Pagination Controls -->
 
 <div class="video-area video-bg pt-200 pb-200">
     <div class="container">
@@ -369,7 +328,15 @@
     </div>
 </div>
 
-<script src="js/dropdownButton.js"></script>
+<script src="/js/dropdownButton.js"></script>
+
+<script>
+    function selectOption(element) {
+        const selectedValue = element.getAttribute('data-value');
+        document.getElementById('adventureTypeInput').value = selectedValue;
+    }
+</script>
+
 
 <footer th:replace="~{fragments/footer}"></footer>
 </body>
