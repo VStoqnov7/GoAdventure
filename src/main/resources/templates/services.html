@@ -18,7 +18,8 @@
     <div class="adventure" style="flex: 1; margin-right: 20px;">
         <div class="form">
             <h1 class="form-title">Create Your Adventure</h1>
-            <form class="adventure-form" th:method="POST" th:action="@{/services/createAdventure}" th:object="${adventureDTO}" enctype="multipart/form-data">
+            <form class="adventure-form" th:method="POST" th:action="@{/services/createAdventure}"
+                  th:object="${adventureDTO}" enctype="multipart/form-data">
                 <div class="adventure-list">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -39,7 +40,7 @@
                                step="0.01"
                                name="price"
                                th:field="*{price}"
-                               placeholder="Adventure Price" />
+                               placeholder="Adventure Price"/>
                         <div class="validation alert alert-danger mt-2"
                              th:if="${#fields.hasErrors('price')}"
                              th:errors="*{price}">
@@ -51,7 +52,7 @@
                                type="text"
                                name="locationName"
                                th:field="*{locationName}"
-                               placeholder="Location name" />
+                               placeholder="Location name"/>
                         <div class="validation alert alert-danger mt-2"
                              th:if="${#fields.hasErrors('locationName')}"
                              th:errors="*{locationName}">
@@ -63,7 +64,7 @@
                                type="text"
                                name="locationCoordinates"
                                th:field="*{locationCoordinates}"
-                               placeholder="Enter coordinates /latitude, longitude/" />
+                               placeholder="Enter coordinates /latitude, longitude/"/>
                         <div class="validation alert alert-danger mt-2"
                              th:if="${#fields.hasErrors('locationCoordinates')}"
                              th:errors="*{locationCoordinates}">
@@ -91,7 +92,7 @@
                                type="number"
                                name="duration"
                                th:field="*{duration}"
-                               placeholder="Adventure Duration" />
+                               placeholder="Adventure Duration"/>
                         <div class="validation alert alert-danger mt-2"
                              th:if="${#fields.hasErrors('duration')}"
                              th:errors="*{duration}">
@@ -118,7 +119,7 @@
                                    type="file"
                                    name="photoUrls"
                                    th:field="*{photoUrls}"
-                                   multiple />
+                                   multiple/>
                             <label for="photoUrls" class="file-upload-label">
                                 <i class="fa fa-cloud-upload-alt"></i> Choose images
                             </label>
@@ -141,93 +142,26 @@
         <div class="booking">
             <h1 class="form-title">Approve Booking Requests</h1>
             <div class="user-list">
-                <div class="user">
-                    <p><strong>First Name:</strong> John</p>
-                    <p><strong>Last Name:</strong> Doe</p>
-                    <p><strong>Email:</strong> john.doe@example.com</p>
-                    <p><strong>Mobile:</strong> +123456789</p>
-                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
+                <th:block th:each="booking : ${pendingBookings}">
+                    <div class="user">
+                        <p><strong>Username:</strong> <span th:text="${booking.userUsername}">Username</span></p>
+                        <p><strong>Email:</strong> <span th:text="${booking.userEmail}">Email</span></p>
+                        <p><strong>Mobile:</strong> <span th:text="${booking.userPhone}">Mobile</span></p>
+                        <p><strong>Adventure:</strong>
+                            <a th:href="'/adventures/' + ${booking.adventureView.id}" th:text="${booking.adventureView.name}">View Adventure</a>
+                        </p>
 
-                    <div class="actions">
-                        <button class="reject-btn">Reject</button>
-                        <button class="allow-btn">Allow</button>
+                        <div class="actions">
+                            <form th:method="POST" th:action="'/services/approveBooking/' + ${booking.id}">
+                                <button class="allow-btn" type="submit">Allow</button>
+                            </form>
+                            <form th:method="POST" th:action="'/services/rejectBooking/' + ${booking.id}">
+                                <button class="reject-btn" type="submit">Reject</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                </th:block>
 
-                <div class="user">
-                    <p><strong>First Name:</strong> Jane</p>
-                    <p><strong>Last Name:</strong> Smith</p>
-                    <p><strong>Email:</strong> jane.smith@example.com</p>
-                    <p><strong>Mobile:</strong> +987654321</p>
-                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
-
-                    <div class="actions">
-                        <button class="reject-btn">Reject</button>
-                        <button class="allow-btn">Allow</button>
-                    </div>
-                </div>
-                <div class="user">
-                    <p><strong>First Name:</strong> Jane</p>
-                    <p><strong>Last Name:</strong> Smith</p>
-                    <p><strong>Email:</strong> jane.smith@example.com</p>
-                    <p><strong>Mobile:</strong> +987654321</p>
-                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
-
-                    <div class="actions">
-                        <button class="reject-btn">Reject</button>
-                        <button class="allow-btn">Allow</button>
-                    </div>
-                </div>
-
-                <div class="user">
-                    <p><strong>First Name:</strong> Jane</p>
-                    <p><strong>Last Name:</strong> Smith</p>
-                    <p><strong>Email:</strong> jane.smith@example.com</p>
-                    <p><strong>Mobile:</strong> +987654321</p>
-                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
-
-                    <div class="actions">
-                        <button class="reject-btn">Reject</button>
-                        <button class="allow-btn">Allow</button>
-                    </div>
-                </div>
-                <div class="user">
-                    <p><strong>First Name:</strong> Jane</p>
-                    <p><strong>Last Name:</strong> Smith</p>
-                    <p><strong>Email:</strong> jane.smith@example.com</p>
-                    <p><strong>Mobile:</strong> +987654321</p>
-                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
-
-                    <div class="actions">
-                        <button class="reject-btn">Reject</button>
-                        <button class="allow-btn">Allow</button>
-                    </div>
-                </div>
-
-                <div class="user">
-                    <p><strong>First Name:</strong> Jane</p>
-                    <p><strong>Last Name:</strong> Smith</p>
-                    <p><strong>Email:</strong> jane.smith@example.com</p>
-                    <p><strong>Mobile:</strong> +987654321</p>
-                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
-
-                    <div class="actions">
-                        <button class="reject-btn">Reject</button>
-                        <button class="allow-btn">Allow</button>
-                    </div>
-                </div>
-                <div class="user">
-                    <p><strong>First Name:</strong> Jane</p>
-                    <p><strong>Last Name:</strong> Smith</p>
-                    <p><strong>Email:</strong> jane.smith@example.com</p>
-                    <p><strong>Mobile:</strong> +987654321</p>
-                    <p><strong>Adventure:</strong> <a href="">Name</a></p>
-
-                    <div class="actions">
-                        <button class="reject-btn">Reject</button>
-                        <button class="allow-btn">Allow</button>
-                    </div>
-                </div>
 
                 <div class="scroll-indicator-2"><i class="fa-solid fa-arrow-down-long" style="color: #63E6BE;"></i>
                 </div>
