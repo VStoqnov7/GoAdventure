@@ -28,47 +28,18 @@
                 diverse cultures and landscapes, while pursuing the desired
                 destination that captivates the heart and ignites a sense of wonder.
             </p>
-            <a href="#" class="btn">BOOK NOW</a>
+            <a th:href="@{'/adventures'}" class="btn">BOOK NOW</a>
         </div>
         <div class="destination-grid">
             <!-- Only 3 cards -->
-            <div class="destination-card">
-                <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                     alt="destination" />
+            <div class="destination-card" th:each="adventure : ${initialAdventures}">
+                <img th:src="${adventure.photoUrls.get(0)}" alt="destination" />
                 <div class="card-content">
-                    <h4>10 Must-Visit Hidden Gems</h4>
-                    <p>
-                        Discover off-the-beaten-path locations and hidden gems within
-                        dream destinations, taking you beyond the typical tourist spots.
-                    </p>
-                    <a href="#" class="btn">Read More</a>
-                </div>
-            </div>
-            <div class="destination-card">
-                <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                     alt="destination" />
-                <div class="card-content">
-                    <h4>Immersive Cultural Experiences</h4>
-                    <p>
-                        Dive deep into the vibrant cultures of dream destinations,
-                        showcasing the rituals, traditions, and local customs that make
-                        these places truly
-                        unique.
-                    </p>
-                    <a href="#" class="btn">Read More</a>
-                </div>
-            </div>
-            <div class="destination-card">
-                <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                     alt="destination" />
-                <div class="card-content">
-                    <h4>From Dreams to Reality</h4>
-                    <p>
-                        Explore expert tips, and hidden gems, ensuring every moment of
-                        your trip is optimized, and make the most of time in your
-                        long-awaited dream location.
-                    </p>
-                    <a href="#" class="btn">Read More</a>
+                    <h4 th:text="${adventure.name}">Adventure Name</h4>
+                    <p><i class="fa fa-map-marker-alt" style="color: #007bff;"></i> <span th:text="${adventure.locationName}">Location</span></p>
+                    <p><i class="fa fa-tag" style="color: #007bff;"></i> <span th:text="${adventure.type}">Type</span></p>
+                    <p th:text="${adventure.description}">Adventure Description</p>
+                    <a th:href="@{'/adventures/' + ${adventure.id}}" class="btn">Read More</a>
                 </div>
             </div>
         </div>
@@ -81,58 +52,21 @@
         <p class="section-subheader">
             Let's see the world with us with you and your family
         </p>
+
         <div class="discover-grid">
-            <div class="discover-card">
+            <div class="discover-card" th:each="adventure : ${followingAdventures}">
                 <div class="discover-image">
-                    <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                         alt="discover" />
+                    <img th:src="${adventure.photoUrls.get(0)}" alt="discover" />
                 </div>
                 <div class="discover-card-content">
-                    <h4>Norway</h4>
-                    <p>
-                        Discover the untamed beauty of Norway, a land where rugged
-                        mountains, and enchanting northern lights paint a surreal
-                        backdrop.
-                    </p>
-                    <a href="#" class="discover-btn">
+                    <h4 th:text="${adventure.locationName}">Norway</h4>
+                    <p th:text="${adventure.description}">Adventure Description</p>
+                    <a th:href="@{'/adventures/' + ${adventure.id}}" class="discover-btn">
                         Discover More <i class="fa-solid fa-right-to-bracket"></i>
                     </a>
                 </div>
             </div>
-            <div class="discover-card">
-                <div class="discover-image">
-                    <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                         alt="discover" />
-                </div>
-                <div class="discover-card-content">
-                    <h4>London</h4>
-                    <p>
-                        From urban rock climbing to twilight cycling through royal
-                        parks, London beckons adventure enthusiasts to embrace
-                        opportunities.
-                    </p>
-                    <a href="#" class="discover-btn">
-                        Discover More <i class="fa-solid fa-right-to-bracket"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="discover-card">
-                <div class="discover-image">
-                    <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg"
-                         alt="discover" />
-                </div>
-                <div class="discover-card-content">
-                    <h4>Japan</h4>
-                    <p>
-                        From scaling the iconic peaks of Mount Fuji to immersing in the
-                        serenity, Japan offers adventurers a captivating cultural
-                        treasures.
-                    </p>
-                    <a href="#" class="discover-btn">
-                        Discover More <i class="fa-solid fa-right-to-bracket"></i>
-                    </a>
-                </div>
-            </div>
+
         </div>
     </div>
 </section>
@@ -151,61 +85,18 @@
             <div class="col-md-12">
                 <!-- 10 destinations card -->
                 <div class="carousel-destination owl-carousel animate">
-                    <div class="item">
+                    <div class="item" th:each="adventure : ${extendedAdventures}">
                         <div class="project-destination">
-                            <a href="#" class="img"
-                               style="background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg);">
+                            <a th:href="@{'/adventures/' + ${adventure.id}}" class="img"
+                               th:style="|background-image: url(${adventure.photoUrls[0]})|">
                                 <div class="text">
-                                    <h3>Philippines</h3>
-                                    <span>150$</span>
+                                    <h3 th:text="${adventure.locationName}">Philippines</h3>
+                                    <span th:text="'$' + (${adventure.price} % 1 == 0 ? ${#numbers.formatDecimal(adventure.price, 0, 0)} : ${#numbers.formatDecimal(adventure.price, 0, 2)})">150$</span>
                                 </div>
                             </a>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="project-destination">
-                            <a href="#" class="img"
-                               style="background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg);">
-                                <div class="text">
-                                    <h3>Canada</h3>
-                                    <span>400$</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="project-destination">
-                            <a href="#" class="img"
-                               style="background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg);">
-                                <div class="text">
-                                    <h3>Thailand</h3>
-                                    <span>100$</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="project-destination">
-                            <a href="#" class="img"
-                               style="background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg);">
-                                <div class="text">
-                                    <h3>Autralia</h3>
-                                    <span>200$</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="project-destination">
-                            <a href="#" class="img"
-                               style="background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1725393303/home-image_wqmwig.jpg);">
-                                <div class="text">
-                                    <h3>Greece</h3>
-                                    <span>250$</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
