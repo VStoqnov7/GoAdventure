@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Sixtyfour+Convergence&display=swap');
+
+body {
+    height: 100vh;
+    background-color: #112;
+    background-image: url("https://res.cloudinary.com/db1rc9fon/image/upload/v1731709877/error_gkz7wq.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#container {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#text,
+#shadow {
+    margin: 0;
+    font-size: 7em;
+    letter-spacing: 20px;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+}
+
+#text {
+    color: #ff1010;
+    font-family: "Finger Paint", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#shadow {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+}
+
+#glow {
+    animation: neon1 3s linear infinite 1.5s;
+    will-change: opacity;
+}
+
+#blink {
+    animation: blink 2s linear infinite 0s;
+}
+
+@keyframes neon1 {
+    20% { opacity: 1; }
+    80% { opacity: 0.6; }
+}
+
+@keyframes blink {
+    70% { opacity: 1; }
+    79% { opacity: 0; }
+    81% { opacity: 1; }
+    82% { opacity: 0; }
+    83% { opacity: 1; }
+    92% { opacity: 0; }
+    92.5% { opacity: 1; }
+}
+
+.neon-button {
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+    padding: 10px 30px;
+    color: #ccc;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    text-shadow: 0 0 5px #27541f, 0 0 10px #27541f, 0 0 15px #2df409, 0 0 20px #27541f;
+    transition: 0.3s;
+    margin-top: 30px;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.neon-button:hover {
+    background-color: #ccc;
+    color: #ttt;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00ffff, 0 0 20px #00ffff;
+    border-color: #00ffff;
+}
