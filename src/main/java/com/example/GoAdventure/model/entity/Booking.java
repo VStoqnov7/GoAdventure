@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @Accessors(chain = true)
 @Entity
-@Table(name = "booking")
+@Table(name = "bookings")
 public class Booking extends BaseEntity{
 
     @ManyToOne
