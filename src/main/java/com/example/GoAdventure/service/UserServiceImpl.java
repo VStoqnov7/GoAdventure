@@ -2,9 +2,7 @@ package com.example.GoAdventure.service;
 
 import com.example.GoAdventure.config.AdminConfig;
 import com.example.GoAdventure.model.dtos.UserRegisterDTO;
-import com.example.GoAdventure.model.entity.User;
-import com.example.GoAdventure.model.entity.UserRole;
-import com.example.GoAdventure.model.entity.VerificationToken;
+import com.example.GoAdventure.model.entity.*;
 import com.example.GoAdventure.model.enums.Role;
 import com.example.GoAdventure.repository.UserRepository;
 import com.example.GoAdventure.repository.VerificationTokenRepository;
@@ -18,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Service
@@ -108,5 +107,38 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> findByEmail(String email) {
         return this.userRepository.findByEmail(email);
+    }
+
+    @Override
+    public void sendNotificationEmail(PendingBooking pendingBooking, boolean isApproved) {
+        Adventure adventure = pendingBooking.getAdventure();
+        User user = pendingBooking.getUser();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy HH:mm");
+
+        String subject = isApproved ? "Your booking has been approved" : "Your booking has been rejected";
+
+        StringBuilder message = new StringBuilder();
+        message.append("Hello, ").append(user.getUsername()).append(",\n\n");
+
+        if (isApproved) {
+            message.append("Your booking for the adventure '")
+                    .append(adventure.getType().getName())
+                    .append("' has been successfully approved.\n\n")
+                    .append("Booking Date: ").append(pendingBooking.getBookingDate().format(formatter))
+                    .append("\nRegistered On: ").append(pendingBooking.getRegisteredOn().format(formatter))
+                    .append("\n\nThank you for choosing us for your adventure!");
+        } else {
+            message.append("We regret to inform you that your booking for the adventure '")
+                    .append(adventure.getType().getName())
+                    .append("' has been rejected.\n\n")
+                    .append("Thank you for your interest, and feel free to explore other adventures on our platform.");
+        }
+
+        SimpleMailMessage email = new SimpleMailMessage();
+        email.setTo(user.getEmail());
+        email.setSubject(subject);
+        email.setText(message.toString());
+
+        mailSender.send(email);
     }
 }
