@@ -11,7 +11,7 @@ import lombok.experimental.Accessors;
 @Setter
 @Accessors(chain = true)
 @Entity
-@Table(name = "location")
+@Table(name = "locations")
 public class Location extends BaseEntity{
 
     @Column(nullable = false)
