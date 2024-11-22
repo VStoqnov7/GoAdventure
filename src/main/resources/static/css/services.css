@@ -232,6 +232,8 @@ body{
 
 .actions {
     margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .reject-btn,
@@ -259,7 +261,7 @@ body{
     background-color: #c9302c;
 }
 
-.allow-btn:hover {s
+.allow-btn:hover {
     background-color: #4cae4c;
 }
 
