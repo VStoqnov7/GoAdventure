@@ -16,7 +16,7 @@ import java.util.List;
 @Accessors(chain = true)
 public class AdventureDTO {
 
-    @NotBlank(message = "Name is required!")
+    @Size(max = 20, message = "Name must be at most 20 characters long")
     private String name;
 
     @NotNull(message = "Price cannot be empty!")
@@ -37,7 +37,7 @@ public class AdventureDTO {
     private int duration;
 
     @NotBlank(message = "Description is required!")
-    @Size(max = 100, message = "Description cannot be longer than 100 characters!")
+    @Size(max = 80, message = "Description cannot be longer than 80 characters!")
     private String description;
 
     @ValidPhotos
