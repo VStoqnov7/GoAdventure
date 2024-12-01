@@ -456,7 +456,7 @@ a:focus {
     text-align: center;
     border: 1px solid #c1c1c1;
     margin: 10px 0;
-    width: 300px;
+    width: 21rem;
     border-radius: 145px;
     overflow: hidden;
     background-image: linear-gradient(to right top, #dfdde0 0%, #8ac1ec 100%);
@@ -499,4 +499,44 @@ a:focus {
     transition: all .2s;
     margin-top: 15px;
     background-image: linear-gradient(to right top, #dfdde0 0%, #8ac1ec 100%);
+}
+
+@media screen and (max-width: 1100px) {
+
+    .hero-area {
+        margin-top: 8rem;
+        min-height: 24rem;
+    }
+
+    .slider-section .box{
+        margin: 60px auto;
+    }
+
+    .slider-section .custom-carousel-control{
+        bottom: 4rem;
+    }
+
+    .blog-section .box .blog-box .detail-box{
+        width: 17rem;
+    }
+
+    .blog-section .box{
+       margin-bottom: 5rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .hero-area {
+        margin-top: 16rem;
+        min-height: 23rem;
+    }
+
+    .slider-section .custom-carousel-control {
+        bottom: 2.5rem;
+    }
+
+    .container {
+        max-width: 950px;
+    }
 }
