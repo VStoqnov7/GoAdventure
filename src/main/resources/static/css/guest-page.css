@@ -16,14 +16,20 @@
 
 .slide-1 {
     background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1726874196/ATV_-_Guest_Page_zxszpy.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 .slide-2 {
     background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1726874204/Sunset_Ocean_Jet_Ski_-_Guest_Page_njfbz6.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 .slide-3 {
     background-image: url(https://res.cloudinary.com/db1rc9fon/image/upload/v1726874196/Diving-Guest_Page_js1p2o.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 .overlay {
@@ -53,7 +59,7 @@
 .banner-content h4 {
     font-size: 2.8rem;
     text-transform: uppercase;
-font-family: "Rubik Wet Paint", system-ui;
+    font-family: "Rubik Wet Paint", system-ui;
     font-weight: 400;
     font-style: normal;
     background: linear-gradient(90deg, #b3cb27, #2093e6);
@@ -126,4 +132,30 @@ font-family: "Rubik Wet Paint", system-ui;
 
 .owl-stage{
     width: 12952px !important;
+}
+
+@media screen and (max-width: 1100px) {
+
+    .banner-content p{
+        font-size: 1.7rem;
+    }
+
+    .banner-content h4{
+        font-size: 3.5rem;
+    }
+
+    .header-btn{
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .banner-content h4{
+        font-size: 3rem;
+    }
+
+    .header-btn{
+        font-size: 2.5rem;
+    }
 }
