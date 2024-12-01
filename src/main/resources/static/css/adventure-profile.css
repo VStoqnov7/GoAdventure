@@ -559,3 +559,27 @@ input[type="date"] {
 .success-button:hover {
     background-color: #45a049;
 }
+
+
+@media screen and (max-width: 1100px) {
+    .section{
+        flex-direction: column;
+        gap: 6rem;
+        margin-bottom: 10rem;
+    }
+
+    .slider{
+        width: 100%;
+    }
+
+    .adventure-details{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .section{
+        padding: 20rem 0 0 0;
+    }
+
+}
