@@ -476,6 +476,58 @@ form.search-box .search-form button {
         line-height: 1.3;
         margin-bottom: 50px;
     }
+
+    .slider-height {
+        min-height: 550px;
+    }
+
+    .slider-area .hero__caption h1 {
+        font-size: 35px;
+        line-height: 1.2;
+    }
+
+    .slider-area .hero__caption p {
+        margin-bottom: 30px;
+    }
+
+    .video-area .video-caption .pera2 {
+        font-size: 27px;
+    }
+
+    form.search-box .input-form {
+        width: 100%;
+    }
+
+    form.search-box .input-form input {
+        padding: 9px 9px 9px 20px;
+    }
+
+    form.search-box .input-form input::placeholder {
+        font-size: 13px;
+    }
+
+    form.search-box .search-form {
+        width: 100%;
+    }
+
+    .favourite-place .single-place .place-cap {
+        padding: 28px 18px;
+    }
+
+    .video-area {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .video-area .video-caption .video-icon a {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+    }
+
+    .video-area .video-caption .pera3 {
+        font-size: 28px;
+    }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
@@ -488,11 +540,15 @@ form.search-box .search-form button {
     .slider-height {
         min-height: 600px;
     }
-}
 
-@media (max-width: 767px) {
-    .slider-height {
-        min-height: 550px;
+    .slider-area .hero__caption h1 {
+        font-size: 50px;
+        line-height: 1.2;
+    }
+
+    .video-area {
+        padding-top: 100px;
+        padding-bottom: 100px;
     }
 }
 
@@ -501,87 +557,18 @@ form.search-box .search-form button {
         font-size: 60px;
         line-height: 1.2;
     }
-}
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .slider-area .hero__caption h1 {
-        font-size: 50px;
-        line-height: 1.2;
-    }
-}
-
-@media (max-width: 767px) {
-    .slider-area .hero__caption h1 {
-        font-size: 35px;
-        line-height: 1.2;
-    }
-}
-
-@media (max-width: 767px) {
-    .video-area .video-caption .pera2 {
-        font-size: 27px;
-    }
-}
-
-@media (max-width: 767px) {
-    .slider-area .hero__caption p {
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 767px) {
-    form.search-box .input-form {
-        width: 100%;
-    }
-}
-
-@media (max-width: 767px) {
-    form.search-box .input-form input {
-        padding: 9px 9px 9px 20px;
-    }
-}
-
-@media (max-width: 767px) {
-    form.search-box .input-form input::placeholder {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 767px) {
-    form.search-box .search-form {
-        width: 100%;
-    }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
     .favourite-place .single-place .place-cap {
         padding: 28px 18px;
     }
-}
 
-@media (max-width: 767px) {
-    .favourite-place .single-place .place-cap {
-        padding: 28px 18px;
-    }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
     .favourite-place .single-place .place-cap .place-cap-top h3 a {
         font-size: 23px;
     }
-}
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
     .video-area {
         padding-top: 150px;
         padding-bottom: 150px;
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .video-area {
-        padding-top: 100px;
-        padding-bottom: 100px;
     }
 }
 
@@ -592,23 +579,21 @@ form.search-box .search-form button {
     }
 }
 
-@media (max-width: 767px) {
-    .video-area {
-        padding-top: 100px;
-        padding-bottom: 100px;
-    }
-}
+@media screen and (max-width: 1100px) {
 
-@media (max-width: 767px) {
-    .video-area .video-caption .video-icon a {
-        width: 80px;
-        height: 80px;
-        line-height: 80px;
+    .container{
+        max-width: 900px;
     }
-}
 
-@media (max-width: 767px) {
-    .video-area .video-caption .pera3 {
-        font-size: 28px;
+    .select-form{
+        width: 28%;
+    }
+
+    .slider-area .hero-caption h1{
+        font-size: 10rem;
+    }
+
+    .slider-area .hero-caption h1 span::before{
+        right: -34px;
     }
 }
