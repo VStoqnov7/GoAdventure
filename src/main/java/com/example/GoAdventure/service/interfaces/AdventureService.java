@@ -4,6 +4,7 @@ import com.example.GoAdventure.model.dtos.AdventureDTO;
 import com.example.GoAdventure.model.entity.Adventure;
 import com.example.GoAdventure.model.enums.AdventureType;
 import com.example.GoAdventure.model.view.AdventureView;
+import org.springframework.mail.javamail.JavaMailSender;
 
 import java.util.List;
 
@@ -32,4 +33,6 @@ public interface AdventureService {
     List<AdventureView> getExtendedTenAdventureList();
 
     List<AdventureView> getInitialFourAdventures();
+
+    void sentMessage(String name, String email, String subject, String message);
 }
