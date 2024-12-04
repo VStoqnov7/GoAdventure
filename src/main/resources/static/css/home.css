@@ -132,7 +132,8 @@ body {
 }
 
 .destination-card img {
-    width: 100%;
+    height: 10rem;
+    overflow: hidden
 }
 
 .card-content {
@@ -406,4 +407,210 @@ body {
 .select-destination .owl-carousel .owl-stage-outer {
     padding: 1em 0 1em 0;
     position: relative;
+}
+
+.no-adventures {
+    position: relative;
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #ffcccc 0%, #ff6666 100%);
+    color: #ffffff;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    grid-column: span 3;
+}
+
+.no-adventures h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.no-adventures p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 1700px) {
+    body{
+        background-attachment: scroll;
+    }
+
+}
+
+
+@media screen and (max-width: 1100px) {
+
+    body{
+        width: 92rem;
+    }
+
+    .section-container{
+        margin: 0;
+    }
+
+    .container-destination{
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .destination-container{
+        grid-template-columns: none;
+        padding: 13rem 0 5rem 5rem;
+        gap: 0.5rem;
+    }
+
+    .text-destination h1 span{
+        font-size: 3.4rem;
+    }
+
+    /* Горен ляв ъгъл */
+    .socials::before {
+        top: -16rem;
+    }
+
+    /* Долен десен ъгъл */
+    .socials::after {
+        right: -83rem;
+        bottom: 0rem;
+    }
+
+   .card-content h4{
+       font-size: 2rem;
+   }
+
+     .card-content p{
+       font-size: 1.5rem;
+       overflow: visible;
+    }
+
+    .card-content .btn{
+       font-size: 2rem;
+    }
+
+    .text-destination {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .text-destination .btn{
+        font-size: 2rem;
+    }
+
+    .text-destination h1{
+        font-size: 6rem;
+        text-align: center;
+    }
+
+   .text-destination h1 span{
+        font-size: 7rem;
+   }
+
+   .text-destination p{
+        max-width: none;
+        font-size: 2rem;
+        margin: 0 6rem 2rem 6rem;
+   }
+
+    .destination-card{
+        width: 25rem;
+        height: 41rem;
+    }
+
+    .destination-card img{
+        vertical-align: middle;
+        border-style: none;
+        height: 15rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .destination-grid{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+
+    .destination-grid{
+        margin-top: 8rem;
+    }
+
+    .socials a{
+        font-size: 4rem;
+        margin-left: 1rem;
+    }
+
+    .text-destination p{
+        font-size: 1.5rem;
+    }
+
+    .discover-grid{
+        grid-template-columns: repeat(3, 0.3fr);
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .discover-card-content p{
+        font-size: 1.3rem;
+    }
+
+    .discover-btn{
+        font-size: 1.7rem;
+    }
+
+    #discover > div > div > div > div.discover-image > img,
+     .project-destination .img{
+        vertical-align: middle;
+        border-style: none;
+        height: 22rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .section-subheader{
+        font-size: 1.8rem;
+    }
+
+    .project-destination .text h3{
+         font-size: 1.5rem;
+    }
+
+    .project-destination .text span{
+        font-size: 1.8rem;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+    .destination-container{
+        padding: 20rem 0 5rem 5rem;
+    }
+
+    /* Горен ляв ъгъл */
+    .socials::before {
+        top: -8rem;
+    }
+
+    /* Долен десен ъгъл */
+    .socials::after {
+        bottom: -9rem;
+    }
+
+    .destination-card{
+        width: 25rem;
+        height: 41rem;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .destination-grid{
+        margin-top: 12rem;
+    }
 }
