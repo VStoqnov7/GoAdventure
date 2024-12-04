@@ -13,6 +13,9 @@ import com.example.GoAdventure.service.interfaces.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,14 +30,19 @@ public class AdventureServiceImpl implements AdventureService {
     private final PendingBookingService pendingBookingService;
     private final BookingService bookingService;
     private final UserService userService;
+    private final JavaMailSender mailSender;
 
-    public AdventureServiceImpl(AdventureRepository adventureRepository, ModelMapper modelMapper, CloudinaryService cloudinaryService, PendingBookingService pendingBookingService, BookingService bookingService, UserService userService) {
+    @Value("${admin.email}")
+    private String adminEmail;
+
+    public AdventureServiceImpl(AdventureRepository adventureRepository, ModelMapper modelMapper, CloudinaryService cloudinaryService, PendingBookingService pendingBookingService, BookingService bookingService, UserService userService, JavaMailSender mailSender) {
         this.adventureRepository = adventureRepository;
         this.modelMapper = modelMapper;
         this.cloudinaryService = cloudinaryService;
         this.pendingBookingService = pendingBookingService;
         this.bookingService = bookingService;
         this.userService = userService;
+        this.mailSender = mailSender;
     }
 
     @Override
@@ -142,5 +150,16 @@ public class AdventureServiceImpl implements AdventureService {
                 .map(adventure -> modelMapper.map(adventure, AdventureView.class)
                         .setType(adventure.getType().getName()))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void sentMessage(String name, String email, String subject, String message) {
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setFrom(email);
+        mailMessage.setTo(adminEmail);
+        mailMessage.setSubject(subject);
+        mailMessage.setText("Name: " + name + "\nEmail: " + email + "\n\n" + message);
+
+        mailSender.send(mailMessage);
     }
 }
