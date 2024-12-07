@@ -17,12 +17,12 @@
     <div class="destination-container">
         <div class="socials">
             <a href="#" class="social-item" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" class="social-item"  target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="social-item"  target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="social-item"  target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-item" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-item" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-item" target="_blank"><i class="fa-brands fa-youtube"></i></a>
         </div>
         <div class="text-destination">
-            <h1>EXPLORE<br />DREAM<br /><span>DESTINATION</span></h1>
+            <h1>EXPLORE<br/>DREAM<br/><span>DESTINATION</span></h1>
             <p>
                 It encourages exploration of unfamiliar territories, embracing
                 diverse cultures and landscapes, while pursuing the desired
@@ -31,13 +31,23 @@
             <a th:href="@{'/adventures'}" class="btn">BOOK NOW</a>
         </div>
         <div class="destination-grid">
+
+            <th:block th:if="${#lists.isEmpty(initialAdventures)}">
+                <div class="no-adventures">
+                    <h3>No adventures found.</h3>
+                    <p>Try changing the filter or searching in a different location.</p>
+                </div>
+            </th:block>
+
             <!-- Only 3 cards -->
             <div class="destination-card" th:each="adventure : ${initialAdventures}">
-                <img th:src="${adventure.photoUrls.get(0)}" alt="destination" />
+                <img th:src="${adventure.photoUrls.get(0)}" alt="destination"/>
                 <div class="card-content">
                     <h4 th:text="${adventure.name}">Adventure Name</h4>
-                    <p><i class="fa fa-map-marker-alt" style="color: #007bff;"></i> <span th:text="${adventure.locationName}">Location</span></p>
-                    <p><i class="fa fa-tag" style="color: #007bff;"></i> <span th:text="${adventure.type}">Type</span></p>
+                    <p><i class="fa fa-map-marker-alt" style="color: #007bff;"></i> <span
+                            th:text="${adventure.locationName}">Location</span></p>
+                    <p><i class="fa fa-tag" style="color: #007bff;"></i> <span th:text="${adventure.type}">Type</span>
+                    </p>
                     <p th:text="${adventure.description}">Adventure Description</p>
                     <a th:href="@{'/adventures/' + ${adventure.id}}" class="btn">Read More</a>
                 </div>
@@ -47,39 +57,43 @@
 </div>
 
 <section class="discover" id="discover">
-    <div class="section-container discover-container">
-        <h2 class="section-header">Discover the most engaging places</h2>
-        <p class="section-subheader">
-            Let's see the world with us with you and your family
-        </p>
+    <th:block th:unless="${#lists.isEmpty(followingAdventures)}">
+        <div class="section-container discover-container">
+            <h2 class="section-header">Discover the most engaging places</h2>
+            <p class="section-subheader">
+                Let's see the world with us with you and your family
+            </p>
 
-        <div class="discover-grid">
-            <div class="discover-card" th:each="adventure : ${followingAdventures}">
-                <div class="discover-image">
-                    <img th:src="${adventure.photoUrls.get(0)}" alt="discover" />
+            <div class="discover-grid">
+                <div class="discover-card" th:each="adventure : ${followingAdventures}">
+                    <div class="discover-image">
+                        <img th:src="${adventure.photoUrls.get(0)}" alt="discover"/>
+                    </div>
+                    <div class="discover-card-content">
+                        <h4 th:text="${adventure.locationName}">Norway</h4>
+                        <p th:text="${adventure.description}">Adventure Description</p>
+                        <a th:href="@{'/adventures/' + ${adventure.id}}" class="discover-btn">
+                            Discover More <i class="fa-solid fa-right-to-bracket"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="discover-card-content">
-                    <h4 th:text="${adventure.locationName}">Norway</h4>
-                    <p th:text="${adventure.description}">Adventure Description</p>
-                    <a th:href="@{'/adventures/' + ${adventure.id}}" class="discover-btn">
-                        Discover More <i class="fa-solid fa-right-to-bracket"></i>
-                    </a>
-                </div>
+
             </div>
-
         </div>
-    </div>
+    </th:block>
 </section>
 
 <section class="section img select-destination">
-    <div class="container">
-        <div class="row justify-content-center pb-4">
-            <div class="col-md-12 heading-section text-center animate">
-                <span class="subheading">Destination</span>
-                <h2 class="mb-4">Select Your Destination</h2>
+    <th:block th:unless="${#lists.isEmpty(extendedAdventures)}">
+        <div class="container">
+            <div class="row justify-content-center pb-4">
+                <div class="col-md-12 heading-section text-center animate">
+                    <span class="subheading">Destination</span>
+                    <h2 class="mb-4">Select Your Destination</h2>
+                </div>
             </div>
         </div>
-    </div>
+    </th:block>
     <div class="container container-2">
         <div class="row">
             <div class="col-md-12">
