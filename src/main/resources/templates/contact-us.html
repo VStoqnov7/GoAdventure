@@ -14,7 +14,7 @@
     <nav th:replace="~{fragments/navigation}"></nav>
 </div>
 
-<div class="hero-area">
+<div class="hero-area" th:if="${#lists.size(initialFourAdventures) >= 4}">
     <section class="slider-section">
         <div class="container">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -71,27 +71,40 @@
                 <img src="https://res.cloudinary.com/db1rc9fon/image/upload/v1726437388/airplane_drjlv7.png" alt="">
             </div>
             <div class="form-container">
-                <form>
+                <form method="post" th:action="@{/contact-us/send-message}">
+                    <!-- Success Message -->
+                    <div th:if="${successMessage}" class="alert alert-success">
+                        <p th:text="${successMessage}"></p>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div th:if="${errorMessage}" class="alert alert-danger">
+                        <p th:text="${errorMessage}"></p>
+                    </div>
+
+                    <!-- Full Name -->
                     <div class="form-group">
-                        <div class="input-group ">
+                        <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <i class="fa-regular fa-user"></i>
                                 </div>
                             </div>
-                            <input type="text" class="form-control" placeholder="Full Name">
+                            <input type="text" name="name" class="form-control" placeholder="Full Name">
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <div class="input-group ">
+                        <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <i class="fa-regular fa-envelope"></i>
                                 </div>
                             </div>
-                            <input type="text" class="form-control" placeholder="Email Address">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -99,9 +112,10 @@
                                     <i class="fa-solid fa-thumbtack"></i>
                                 </div>
                             </div>
-                            <input type="text" class="form-control" placeholder="Subject">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -109,11 +123,12 @@
                                     <i class="fa-regular fa-message"></i>
                                 </div>
                             </div>
-                            <textarea class="form-control" placeholder="Message"></textarea>
+                            <textarea name="message" class="form-control" placeholder="Message"></textarea>
                         </div>
                     </div>
+
                     <div class="btn-box">
-                        <button type="submit" class="">Send Message</button>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
                     </div>
                 </form>
             </div>
@@ -121,7 +136,7 @@
     </div>
 </section>
 
-<section class="blog-section" id="blog">
+<section class="blog-section" id="blog" th:if="${#lists.size(initialFourAdventures) >= 4}">
     <div class="container">
         <div class="heading-container">
             <h2>
