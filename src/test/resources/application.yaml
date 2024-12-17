@@ -1,0 +1,37 @@
+# Data Source Properties
+spring:
+  sql:
+    init:
+      mode: never
+
+  # Email Sending
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USER:examplep@gmail.com}
+    password: ${MAIL_PASSWORD:examplePassword}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+# Cloudinary
+cloudinary:
+  name: ${CLOUDINARY_NAME:test-cloud}
+  api-key: ${CLOUDINARY_API_KEY:test-api-key}
+  api-secret: ${CLOUDINARY_API_SECRET:test-secret}
+
+  # Administrator
+admin:
+  username: ${ADMIN_USERNAME:venci555}
+  password: ${ADMIN_PASSWORD:sssss}
+  email: ${ADMIN_EMAIL:admin@example.com}
+  phone: ${ADMIN_PHONE_NUMBER:1234567890}
+
+  # Application settings
+app:
+  mysql:
+    host: ${HOST:localhost}
+    port: ${PORT:8080}
